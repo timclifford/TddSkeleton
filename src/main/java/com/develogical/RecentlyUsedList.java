@@ -13,9 +13,16 @@ public class RecentlyUsedList<E> {
     }
 
     public void add(E value) {
-        if(list.contains(value))
-            return;
-        list.add(0,value);
+        if(list.contains(value)) {
+            int index = list.indexOf(value);
+            E newValue =  list.get(index);
+            list.remove(index);
+            list.add(0, newValue);
+        }
+        else {
+            list.add(0,value);
+        }
+
     }
 
     public E get(int index) {

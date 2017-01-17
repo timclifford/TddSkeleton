@@ -47,4 +47,16 @@ public class RecentlyUsedListTest {
         Assert.assertEquals(5, recentlyUsedList.get(0));
         Assert.assertEquals(1, recentlyUsedList.count());
     }
+
+    @Test
+    public void itemsAreMostRecentlyUsedIfReadded() {
+        recentlyUsedList.add(1);
+        recentlyUsedList.add(2);
+        recentlyUsedList.add(3);
+        recentlyUsedList.add(2);
+
+        Assert.assertEquals(2, recentlyUsedList.get(0));
+        Assert.assertEquals(3, recentlyUsedList.get(1));
+        Assert.assertEquals(1, recentlyUsedList.get(2));
+    }
 }
